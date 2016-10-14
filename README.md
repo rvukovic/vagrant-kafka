@@ -29,7 +29,7 @@ listing if the topic exist
 ```
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
-create some message - using the IP is important. puting localhost like in other examples will not work
+create some message - using the IP is important. Puting *localhost* like in other examples will not work
 ```
 $ bin/kafka-console-producer.sh --broker-list 192.168.33.10:9092 --topic test
 ```
