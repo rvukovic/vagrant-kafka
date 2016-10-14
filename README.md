@@ -43,3 +43,12 @@ Check if we got something.
 ```
 $ bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
 ```
+
+Testing from the host machine
+====================
+```
+$ telnet 192.168.33.10 9092
+Trying 192.168.33.10...
+Connected to 192.168.33.10.
+Escape character is '^]'.
+```
