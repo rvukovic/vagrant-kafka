@@ -1,8 +1,13 @@
 Vagrant Apache Kafka
 ====================
 
-These scripts will quickly allow you to setup a single node [Kafka](http://kafka.apache.org) server using Vagrant. To get started simply:
+These scripts will quickly allow you to setup a single node [Kafka](http://kafka.apache.org) server using Vagrant. 
 
+* CentOS 7.2
+* Kafka 0.10.0.1
+* java-1.8.0-openjdk.x86_64
+
+To get started simply:
 ```
 $ git clone https://github.com/rvukovic/vagrant-kafka
 $ cd vagrant-kafka
@@ -11,7 +16,7 @@ $ vagrant up
 
 The Kafka server will be listening on `192.168.33.10` port `9092`.
 
-https://kafka.apache.org/documentation
+https://kafka.apache.org/documentation containes more documentation
 
 Test Kafka
 ====================
@@ -20,20 +25,21 @@ Connect ot vagrant machine
 $ vagrant ssh
 $ cd kafka_2.11-0.10.0.1
 ```
-creating test topic
+Creating **test** topic
 ```
 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 ```
 
-listing if the topic exist
+List if the **test** topic exist
 ```
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
-create some message - using the IP is important. Puting *localhost* like in other examples will not work
+The following two commands can be started in separate console windows and then you can send messages from one windows to another. 
+Create some message - using the IP is important. Puting **localhost** like in other examples will not work
 ```
 $ bin/kafka-console-producer.sh --broker-list 192.168.33.10:9092 --topic test
 ```
-check if we got something
+Check if we got something. 
 ```
 $ bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
 ```
