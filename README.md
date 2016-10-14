@@ -15,18 +15,25 @@ https://kafka.apache.org/documentation
 
 Test Kafka
 ====================
+Connect ot vagrant machine
+```
 $ vagrant ssh
 $ cd kafka_2.11-0.10.0.1
-
+```
 creating test topic
+```
 $ bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
-
+```
 
 listing if the topic exist
+```
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
-
+```
 create some message - using the IP is important. puting localhost like in other examples will not work
+```
 $ bin/kafka-console-producer.sh --broker-list 192.168.33.10:9092 --topic test
-
+```
 check if we got something
+```
 $ bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic test --from-beginning
+```
