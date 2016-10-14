@@ -11,6 +11,7 @@ To get started simply:
 ```
 $ git clone https://github.com/rvukovic/vagrant-kafka
 $ cd vagrant-kafka
+$ vagrant plugin install vagrant-hostsupdater
 $ vagrant up
 ```
 
@@ -35,9 +36,9 @@ List if the **test** topic exist
 $ bin/kafka-topics.sh --list --zookeeper localhost:2181
 ```
 The following two commands can be started in separate console windows and then you can send messages from one windows to another. 
-Create some message - using the IP is important. Puting **localhost** like in other examples will not work
+Create some message. Puting **localhost** like in other examples will not work
 ```
-$ bin/kafka-console-producer.sh --broker-list 192.168.33.10:9092 --topic test
+$ bin/kafka-console-producer.sh --broker-list kafka.dev:9092 --topic test
 ```
 Check if we got something. 
 ```
@@ -51,4 +52,15 @@ $ telnet 192.168.33.10 9092
 Trying 192.168.33.10...
 Connected to 192.168.33.10.
 Escape character is '^]'.
+```
+
+
+Python setup
+====================
+```
+$ curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+$ sudo python get-pip.py
+
+
+$ sudo pip install kafka-python
 ```
